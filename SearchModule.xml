@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Search Module">
+    <test verbose="2" preserve-order="true" name="Search-Module">
+        <parameter name="Keyword" value="qa"></parameter>
+        <classes>
+            <class name="com.searchmodule.tests.SearchTest">
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Book-Flight1">
+        <parameter name="Keyword" value="java"></parameter>
+        <classes>
+            <class name="com.searchmodule.tests.SearchTest">
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Book-Flight2">
+        <parameter name="Keyword" value="testng"></parameter>
+        <classes>
+            <class name="com.searchmodule.tests.SearchTest">
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Book-Flight3">
+        <parameter name="Keyword" value="cypress"></parameter>
+        <classes>
+            <class name="com.searchmodule.tests.SearchTest">
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Book-Flight4">
+        <parameter name="Keyword" value="webdriverIO"></parameter>
+        <classes>
+            <class name="com.searchmodule.tests.SearchTest">
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="Book-Flight" >
+        <parameter name="password" value="Docker"></parameter>
+        <parameter name="noOfPassangers" value="3"></parameter>
+        <classes>
+            <class name="com.nowtours.tests.BookFlightTest">
+           </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="Book-Flight2">
+        <parameter name="password" value="abc"></parameter>
+        <parameter name="noOfPassangers" value="2"></parameter>
+
+        <classes>
+            <class name="com.nowtours.tests.BookFlightTest">
+            </class>
+        </classes>
+    </test>
+</suite>
