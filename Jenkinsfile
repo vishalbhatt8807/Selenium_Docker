@@ -6,27 +6,28 @@ pipeline{
             agent{
                 docker{
                     image 'maven:3-alpine'
-                    args '-v /root/.m2:/root/.m2'
+                    args '-v $HOME/.m2:/root/.m2'
                 }
             }
             steps{
             //for windows put bat for mac use sh
-                    bat 'mvn clean package -pSkipTests'
+                    sh 'mvn clean package -pSkipTests'
                 }
         }
         stage('Build Image'){
             steps{
                 script{
-                    bat "docker build -t='vishalbhatt8807/seleniumDocker' . "
+                    app = docker.build('vishalbhatt8807/seleniumDocker')
                 }
             }
         }
         stage('Push image'){
             steps{
-            withCredentials([usernamePassword(credentialsId: 'Dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]
-                //sh
-                 sh "docker login --username=${user} --password=${pass}"
-                 sh "docker push vishalbhatt8807/seleniumdocker:latest"
+                script{
+                    docker.withRegistry('https://registry.hub.docker.com','Dockerhub'){
+                        app.push("${BUILD_NUMBER}")
+                        app.push("latest")
+                    }
                 }
             }
         }
